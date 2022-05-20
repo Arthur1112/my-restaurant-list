@@ -6,8 +6,8 @@ function RestaurantList() {
     useEffect(() => {
         // fetch our API
         fetch('https://my-first-firestore-as.web.app/restaurants')
-            .then(response => response.json)
-            .then(data => setRestaurants(data)) // data -> restaurants
+            .then(response => response.json())
+            .then((data) => setRestaurants(data)) // data -> restaurants
             .catch(console.error)
     }, [])
     return (
