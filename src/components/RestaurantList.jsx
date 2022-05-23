@@ -12,7 +12,7 @@ function RestaurantList() {
             .catch(console.error)
     }, [])
     return (
-        <section>
+        <section style={{marginTop: '60px'}}>
             <Row>
             {!restaurants
                 ? <h2>Loading...</h2>
