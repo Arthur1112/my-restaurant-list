@@ -1,20 +1,29 @@
 import React from "react";
+import {useNavigate } from "react-router-dom";
 import {Menu} from 'antd';
-import { PlusCircleOutlined, QuestionCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, QuestionCircleOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
 
 
 export default function Menubar() {
-    return(
-        <Menu theme='dark' mode='horizontal'>
-          <Menu.Item key="add" icon={<PlusCircleOutlined style={{fontSize: '1.1em'}}/>}>
-            Add
-            </Menu.Item>
-          <Menu.Item key="random" icon={<QuestionCircleOutlined style={{fontSize: '1.1em'}}/>}>
-            Pick Random Restaurant
-            </Menu.Item>
-          <Menu.Item key="user" icon={<UserOutlined style={{fontSize: '1.1em'}}/>}>
-            Login
-          </Menu.Item>
-        </Menu>
-    )
+  let navigate = useNavigate()
+  return(
+    <Menu theme='dark' mode='horizontal'>
+      <Menu.Item key="home" onClick={() => navigate('/')}
+        icon={<HomeOutlined style={{fontSize: '1.1em'}}/>}>
+          Home
+        </Menu.Item>
+      <Menu.Item key="add" onClick={() => navigate('/add')}
+        icon={<PlusCircleOutlined style={{fontSize: '1.1em'}}/>}>
+          Add Restaurant
+        </Menu.Item>
+      <Menu.Item key="random" 
+        icon={<QuestionCircleOutlined style={{fontSize: '1.1em'}}/>}>
+          Pick Random Restaurant
+        </Menu.Item>
+      <Menu.Item key="user" onClick={() => navigate('/login')}
+        icon={<UserOutlined style={{fontSize: '1.1em'}}/>}>
+          User Login
+      </Menu.Item>
+    </Menu>
+  )
 }
