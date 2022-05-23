@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
+import {getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 import { Button, Form, Input } from "antd";
 
 const firebaseConfig = {
@@ -21,6 +21,15 @@ export default function Login() {
             .then(res => console.log(res.user))
             .catch(console.error)
         }
+
+    const handelGoogleLogin = () => {
+        const app = initializeApp(firebaseConfig)
+        const auth = getAuth(app)
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+        .then(res => console.log(res.user))
+        .catch(console.error)
+    }
     return (
         <section style={{padding: '2em'}}>
         <Form 
@@ -42,6 +51,11 @@ export default function Login() {
                 wrapperCol={{span:16 ,offset: 8}}
             >
                 <Button type="primary" htmlType='submit'>Login</Button>
+            </Form.Item>
+            <Form.Item
+                wrapperCol={{span:16 ,offset: 8}}
+            >
+                <Button onClick={handelGoogleLogin}> Google Login</Button>
             </Form.Item>
         </Form>
         </section>
