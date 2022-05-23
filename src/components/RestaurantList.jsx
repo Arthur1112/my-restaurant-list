@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Col, Row, Card} from 'antd'
+import RestaurantCard from "./RestaurantCard";
 
 function RestaurantList() {
     const [restaurants, setRestaurants] = useState();
@@ -12,19 +13,10 @@ function RestaurantList() {
     }, [])
     return (
         <section>
-            <Row gutter={16}>
+            <Row>
             {!restaurants
                 ? <h2>Loading...</h2>
-                : restaurants.map(restaurant => (
-                    <Col style={{ width: '300px', margin: '1em' }} key={restaurant.id}>
-                        <Card
-                            cover={<img alt={`Typical meal at ${restaurant.name}`} src={restaurant.image} />}
-                            hoverable> 
-                                <Card.Meta title ={restaurant.name} description={restaurant.address} />
-                        </Card>
-                    </Col>
-                )
-                )}
+                : restaurants.map(restaurant => <RestaurantCard restaurant={restaurant} key={restaurant.id} />)}
             </Row>
         </section>
     )
