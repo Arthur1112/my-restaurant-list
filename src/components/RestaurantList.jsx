@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Col, Row, Card} from 'antd'
+import {Row} from 'antd'
 import RestaurantCard from "./RestaurantCard";
 
 function RestaurantList() {
