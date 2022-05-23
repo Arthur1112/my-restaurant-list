@@ -3,6 +3,7 @@ import RestaurantList from './components/RestaurantList';
 import {Layout} from 'antd';
 import Menubar from './components/Menubar';
 import './App.css';
+import RestaurantPage from './components/RestaurantPage';
 
 const {Header, Content} = Layout
 
@@ -15,6 +16,7 @@ function App() {
         </Header>
         <Content>
           <Routes>
+            <Route path='/restaurants/:restaurantId' element={<RestaurantPage />} />
             <Route path='/random' element={<h1>Random</h1>} />
             <Route path='/add' element={<h1>Add Restaurant</h1>} />
             <Route path='/login' element={<h1>Login</h1>} />
