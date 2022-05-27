@@ -14,7 +14,7 @@ export default function AddRestaurant () {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newRestaurant = {name, address, cuisine, image, rating: Number(rating)};
-    fetch('https://my-first-firestore-bc.web.app/restaurants', {
+    fetch('https://my-first-firestore-as.web.app/restaurants', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
