@@ -6,6 +6,7 @@ import Menubar from './components/Menubar';
 import './App.css';
 import RestaurantPage from './components/RestaurantPage';
 import Login from './components/Login';
+import AddRestaurant from './components/AddRestaurant';
 
 const {Header, Content} = Layout
 
@@ -28,7 +29,7 @@ function App() {
               <Route path='/add' element={
                 !user 
                   ? <Login /> 
-                  : <h1>Add Restaurant</h1>
+                  : <AddRestaurant/>
               } />
               <Route path='/' element={<RestaurantList />} />
             </Routes>
